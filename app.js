@@ -99,7 +99,7 @@ var tracker = {
   onClick: function(event) {
     console.log(event.target.id);
 
-    if (tracker.clickCount < 15){
+    if (tracker.clickCount < 25){
       if(event.target.id === 'images') {
         console.log('didnt click an image');
         return;
@@ -114,7 +114,8 @@ var tracker = {
       }
 
     } else {
-      if (tracker.clickCount === 15) {
+      if (tracker.clickCount === 25) {
+        tracker.imageEl.removeEventListener('click', tracker.onClick);
         tracker.getChart();
 
       }
