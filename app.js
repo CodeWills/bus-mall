@@ -46,7 +46,19 @@ var tracker = {
             'rgba(255, 206, 86, 0.2)',
             'rgba(75, 192, 192, 0.2)',
             'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)'
           ],
           borderColor: [
             'rgba(255,99,132,1)',
@@ -54,6 +66,20 @@ var tracker = {
             'rgba(255, 206, 86, 1)',
             'rgba(75, 192, 192, 1)',
             'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
             'rgba(255, 159, 64, 1)'
           ],
           borderWidth: 1
@@ -115,6 +141,7 @@ var tracker = {
 
     } else {
       if (tracker.clickCount === 25) {
+        tracker.ls1();
         tracker.imageEl.removeEventListener('click', tracker.onClick);
         tracker.getChart();
 
@@ -123,9 +150,24 @@ var tracker = {
 
 
     }
-  }
+  },
+
+  ls1: function() {
+    localStorage.clear();
+    var encode = JSON.stringify(allProducts);
+    localStorage.setItem('AllProducts',encode);
+  },
+  ls2: function() {
+    var jr = JSON.parse(localStorage.getItem('AllProducts'));
+    if (jr !== null){
+      allProducts = jr;
+    }
+  },
+
 };
+
 
 
 tracker.imageEl.addEventListener('click', tracker.onClick);
 tracker.displayImages();
+tracker.ls2();
