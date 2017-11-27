@@ -1,0 +1,25 @@
+html{
+  margin: 1%;
+  background-color: lightgray;
+}
+.topnav{
+  border: 1px solid black;
+  font-size: 25px;
+  text-align: center;
+  background-color: ;
+
+}
+
+#images{
+  text-align: center;
+
+}
+
+#header{
+  text-align: center;
+  border: 1px solid black;
+  margin-top: 2px;
+}
+h3{
+  text-align: center;
+}
